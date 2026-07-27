@@ -432,8 +432,6 @@ document.getElementById("openBtn").addEventListener("click",()=>{
 
     const link=document.getElementById("resultLink");
 
-    navigator.clipboard.writeText(link.value);
-
 
 // Share Link
 
