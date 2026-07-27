@@ -1,0 +1,773 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:30px;
+overflow-x:hidden;
+}
+
+.background{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:
+radial-gradient(circle at top,#60a5fa33,transparent 60%),
+radial-gradient(circle at bottom,#3b82f633,transparent 60%);
+z-index:-1;
+}
+
+.container{
+width:100%;
+max-width:850px;
+}
+
+header{
+text-align:center;
+margin-bottom:30px;
+color:#fff;
+}
+
+header h1{
+font-size:34px;
+margin-bottom:10px;
+font-weight:700;
+}
+
+header p{
+font-size:17px;
+opacity:.9;
+}
+
+.card{
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(18px);
+padding:25px;
+margin-bottom:25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+border:1px solid rgba(255,255,255,.15);
+}
+
+.card h2{
+color:#fff;
+margin-bottom:20px;
+font-size:24px;
+}
+
+.semester-box{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.semester{
+width:180px;
+padding:25px;
+border-radius:18px;
+background:#ffffff;
+text-align:center;
+cursor:pointer;
+transition:.35s;
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.semester:hover{
+transform:translateY(-8px);
+}
+
+.semester.active{
+background:#2563eb;
+color:#fff;
+}
+
+.semester i{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.input-group{
+display:flex;
+flex-direction:column;
+margin-bottom:20px;
+}
+
+.input-group label{
+margin-bottom:8px;
+font-weight:600;
+color:#fff;
+}
+
+.input-group input{
+padding:15px;
+border:none;
+border-radius:12px;
+font-size:16px;
+outline:none;
+}
+
+#generateBtn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#10b981;
+color:#fff;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+#generateBtn:hover{
+background:#059669;
+}
+
+.progress{
+height:8px;
+background:#ffffff44;
+margin-top:20px;
+border-radius:30px;
+overflow:hidden;
+}
+
+#progressBar{
+width:0%;
+height:100%;
+background:#22c55e;
+transition:.4s;
+}
+
+.result-card{
+display:none;
+}
+
+#resultLink{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+margin-bottom:20px;
+font-size:15px;
+}
+
+.button-group{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.button-group button{
+padding:14px 20px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
+background:#2563eb;
+color:#fff;
+transition:.3s;
+}
+
+.button-group button:hover{
+transform:scale(1.05);
+}
+
+#history{
+list-style:none;
+color:#fff;
+}
+
+#history li{
+padding:10px;
+margin:8px 0;
+background:#ffffff22;
+border-radius:10px;
+}
+
+footer{
+text-align:center;
+color:#fff;
+margin-top:20px;
+font-size:15px;
+}
+
+#themeBtn{
+position:fixed;
+top:20px;
+right:20px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:#fff;
+cursor:pointer;
+font-size:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+transition:.3s;
+}
+
+#themeBtn:hover{
+transform:rotate(180deg);
+}
+
+.dark{
+background:#0f172a;
+}
+
+.dark .card{
+background:#1e293bcc;
+}
+
+.dark input{
+background:#334155;
+color:#fff;
+}
+
+.dark .semester{
+background:#334155;
+color:#fff;
+}
+
+.dark .semester.active{
+background:#3b82f6;
+}
+
+@media(max-width:768px){
+
+header h1{
+font-size:28px;
+}
+
+.semester{
+width:100%;
+}
+
+.button-group{
+flex-direction:column;
+}
+
+.button-group button{
+width:100%;
+}
+
+}
+/* ==========================
+   Student Card
+========================== */
+
+#studentCard{
+
+display:none;
+animation:fadeIn .5s ease;
+
+}
+
+#studentCard p{
+
+font-size:18px;
+margin:12px 0;
+color:#fff;
+
+}
+
+/* ==========================
+   Best Wishes
+========================== */
+
+#wishCard{
+
+display:none;
+text-align:center;
+animation:fadeIn .6s ease;
+
+}
+
+#wishMessage{
+
+font-size:20px;
+font-weight:bold;
+line-height:35px;
+color:#FFD700;
+
+}
+
+/* ==========================
+   Popup
+========================== */
+
+.popup{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(6px);
+z-index:9999;
+
+}
+
+.popup-box{
+
+width:90%;
+max-width:420px;
+background:#fff;
+color:#222;
+padding:30px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+animation:popup .4s ease;
+
+}
+
+.popup-box h1{
+
+color:#10b981;
+margin-bottom:15px;
+
+}
+
+.popup-box p{
+
+font-size:18px;
+line-height:30px;
+margin-bottom:20px;
+
+}
+
+#popupOpen{
+
+padding:14px 25px;
+border:none;
+border-radius:10px;
+background:#16a34a;
+color:#fff;
+font-size:17px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+#popupOpen:hover{
+
+transform:scale(1.05);
+
+}
+
+#popupClose{
+
+padding:12px 22px;
+border:none;
+border-radius:10px;
+background:#ef4444;
+color:#fff;
+cursor:pointer;
+margin-top:10px;
+
+}
+
+#showPopup{
+
+padding:15px 30px;
+border:none;
+border-radius:12px;
+background:#2563eb;
+color:#fff;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+#showPopup:hover{
+
+transform:translateY(-3px);
+
+}
+
+/* ==========================
+Animations
+========================== */
+
+@keyframes popup{
+
+0%{
+
+transform:scale(.5);
+opacity:0;
+
+}
+
+100%{
+
+transform:scale(1);
+opacity:1;
+
+}
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+/* ==========================
+Responsive
+========================== */
+
+@media(max-width:768px){
+
+.popup-box{
+
+width:95%;
+
+}
+
+#wishMessage{
+
+font-size:18px;
+
+}
+
+#studentCard p{
+
+font-size:16px;
+
+}
+
+}
+/* ==========================================
+   PREMIUM RESULT CARD
+========================================== */
+
+.success-box{
+    text-align:center;
+    animation:fadeIn .6s ease;
+}
+
+.success-icon{
+    font-size:65px;
+    color:#22c55e;
+    margin-bottom:15px;
+}
+
+.success-box h2{
+    font-size:32px;
+    margin-bottom:10px;
+    color:#22c55e;
+}
+
+.success-box p{
+    color:#ddd;
+    margin-bottom:20px;
+    font-size:18px;
+}
+
+.result-btn{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:15px;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    color:#fff;
+    margin-top:20px;
+    margin-bottom:20px;
+    background:linear-gradient(90deg,#00c853,#00e676);
+    transition:.4s;
+    box-shadow:0 10px 25px rgba(0,255,100,.35);
+}
+
+.result-btn:hover{
+    transform:translateY(-5px) scale(1.02);
+    box-shadow:0 15px 35px rgba(0,255,120,.55);
+}
+
+/* ==========================================
+   POPUP
+========================================== */
+
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(10px);
+    z-index:9999;
+}
+
+.popup-box{
+    width:90%;
+    max-width:430px;
+    background:#fff;
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    animation:popup .4s ease;
+}
+
+.popup-icon{
+    font-size:75px;
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.popup-box h1{
+    font-size:38px;
+    color:#111827;
+    margin-bottom:15px;
+}
+
+.popup-box p{
+    color:#555;
+    line-height:30px;
+    font-size:18px;
+}
+
+.popup-btn{
+    width:100%;
+    margin-top:25px;
+    padding:18px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:22px;
+    font-weight:bold;
+    color:#111;
+    background:linear-gradient(90deg,#ffd54f,#ffb300);
+    transition:.35s;
+}
+
+.popup-btn:hover{
+    transform:scale(1.05);
+}
+
+.luck{
+    margin-top:25px;
+    font-size:18px;
+    color:#888;
+}
+
+@keyframes popup{
+
+0%{
+transform:scale(.5);
+opacity:0;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
+/*==========================
+ PREMIUM FOOTER
+==========================*/
+
+.footer{
+
+margin-top:60px;
+
+background:linear-gradient(135deg,#07152f,#0c234d,#112f66);
+
+padding:50px 35px 20px;
+
+border-radius:25px;
+
+box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+color:#fff;
+
+}
+
+.footer-top{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:35px;
+
+}
+
+.footer h2{
+
+font-size:28px;
+
+margin-bottom:15px;
+
+color:#4fc3f7;
+
+}
+
+.footer h3{
+
+margin-bottom:18px;
+
+color:#4fc3f7;
+
+}
+
+.footer p{
+
+line-height:1.8;
+
+color:#d9d9d9;
+
+}
+
+.footer-links a{
+
+display:block;
+
+margin:10px 0;
+
+color:#ddd;
+
+text-decoration:none;
+
+transition:.35s;
+
+}
+
+.footer-links a:hover{
+
+color:#4fc3f7;
+
+padding-left:10px;
+
+}
+
+.social-icons{
+
+margin-top:20px;
+
+display:flex;
+
+gap:15px;
+
+}
+
+.social-icons a{
+
+width:45px;
+
+height:45px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:50%;
+
+background:#ffffff18;
+
+color:#fff;
+
+font-size:20px;
+
+transition:.35s;
+
+text-decoration:none;
+
+}
+
+.social-icons a:hover{
+
+background:#4fc3f7;
+
+transform:translateY(-6px) rotate(360deg);
+
+}
+
+.footer hr{
+
+margin:30px 0 15px;
+
+border:none;
+
+height:1px;
+
+background:#3b5d91;
+
+}
+
+.footer-bottom{
+
+text-align:center;
+
+font-size:15px;
+
+color:#ccc;
+
+}
+
+.footer-bottom span{
+
+color:#4fc3f7;
+
+font-weight:bold;
+
+}
+
+@media(max-width:768px){
+
+.footer{
+
+padding:40px 20px;
+
+}
+
+.footer-top{
+
+text-align:center;
+
+}
+
+.social-icons{
+
+justify-content:center;
+
+}
+
+}
