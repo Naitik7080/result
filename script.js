@@ -217,9 +217,7 @@ setTimeout(() => {
 document.getElementById("copyBtn").addEventListener("click", () => {
 
     const link =
-        document.getElementById("resultLink");
-
-    link.select();
+        document.getElementById("resultLink")
 
 
 
