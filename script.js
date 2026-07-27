@@ -221,7 +221,7 @@ document.getElementById("copyBtn").addEventListener("click", () => {
 
     link.select();
 
-    navigator.clipboard.writeText(link.value);
+
 
 
 
