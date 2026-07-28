@@ -182,7 +182,7 @@ const encodedEnrollment = btoa(enrollment);
 const encodedDob = btoa(dob);
 
 const resultURL =
-"https://result.bteexam.com/even/main/oddresult.aspx?id=" + encEnroll + "&id2=" + encDob;
+"https://result.bteexam.com/even/main/oddresult.aspx?id=";
 
 document.getElementById("resultCard").style.display="block";
 document.querySelector(".success-box h2").innerHTML="✅ Result Link Generated";
