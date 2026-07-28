@@ -176,13 +176,15 @@ generateBtn.innerHTML = "Generate Result Link";
 
 // -------- YOUR RESULT LINK ----------
 
-
-// Direct Result URL (Experimental)
-const encodedEnrollment = btoa(enrollment);
-const encodedDob = btoa(dob);
+// Generate Encoded Result URL
+const encEnroll = btoa(enrollment);
+const encDob = btoa(dob);
 
 const resultURL =
-"https://result.bteexam.com/even/main/oddresult.aspx?id=";
+    "https://result.bteexam.com/even/main/oddresult.aspx?id=" +
+    encEnroll +
+    "&id2=" +
+    encDob;
 
 document.getElementById("resultCard").style.display="block";
 document.querySelector(".success-box h2").innerHTML="✅ Result Link Generated";
