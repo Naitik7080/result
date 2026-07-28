@@ -175,16 +175,24 @@ generateBtn.disabled = false;
 generateBtn.innerHTML = "Generate Result Link";
 
 // -------- YOUR RESULT LINK ----------
+let baseURL = "";
 
-// Generate Encoded Result URL
-const encEnroll = btoa(enrollment);
+if (selectedSemester == "2") {
+    baseURL = "https://result.bteexam.com/even/main/oddresult.aspx";
+}
+else if (selectedSemester == "4") {
+    baseURL = "https://result.bteexam.com/even/main/oddresult.aspx";
+}
+else {
+    baseURL = "https://result.bteexam.com/even/main/oddresult.aspx";
+}
+    const encEnroll = btoa(enrollment);
 const encDob = btoa(dob);
 
 const resultURL =
-    "https://result.bteexam.com/even/main/oddresult.aspx?id=" +
-    encEnroll +
-    "&id2=" +
-    encDob;
+    baseURL +
+    "?id=" + encEnroll +
+    "&id2=" + encDob;
 
 document.getElementById("resultCard").style.display="block";
 document.querySelector(".success-box h2").innerHTML="✅ Result Link Generated";
